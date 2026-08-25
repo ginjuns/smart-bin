@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- 뒤로가기 버튼 -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#111111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- X 닫기 버튼 -->
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_close_24"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#111111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- 타이틀 -->
+    <TextView
+        android:id="@+id/tvAutoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REMOTE CONTROL"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:textColor="#111111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider0"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/tvAutoTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 하위 항목 (Manual) -->
+    <TextView
+        android:id="@+id/tvManual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manual Mode"
+        android:textSize="17sp"
+        android:textColor="#111111"
+        app:layout_constraintTop_toBottomOf="@id/divider0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Manual 버튼 -->
+    <Switch
+        android:id="@+id/switchManual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:thumb="@drawable/switch_thumb_custom"
+        android:track="@drawable/switch_track_custom"
+        app:layout_constraintTop_toTopOf="@id/tvManual"
+        app:layout_constraintBottom_toBottomOf="@id/tvManual"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/tvManual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 하위 항목 (Open Lid) -->
+    <TextView
+        android:id="@+id/tvOpenLid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Lid"
+        android:textSize="17sp"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toBottomOf="@id/divider1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Open Lid 버튼 -->
+    <Switch
+        android:id="@+id/switchOpenLid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:thumb="@drawable/switch_thumb_custom"
+        android:track="@drawable/switch_track_custom"
+        app:layout_constraintTop_toTopOf="@id/tvOpenLid"
+        app:layout_constraintBottom_toBottomOf="@id/tvOpenLid"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/tvOpenLid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

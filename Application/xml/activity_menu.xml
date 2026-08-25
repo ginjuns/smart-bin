@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- X 닫기 버튼 -->
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_close_24"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#111111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- MENU 타이틀 -->
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MENU"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:textColor="#111111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider0"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/tvMenuTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 와이파이 메뉴 -->
+    <TextView
+        android:id="@+id/btnWifi"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Device Setup"
+        android:textSize="17sp"
+        android:textColor="#111111"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@id/divider0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 화살표 아이콘 (와이파이) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="›"
+        android:textSize="25sp"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toTopOf="@id/btnWifi"
+        app:layout_constraintBottom_toBottomOf="@id/btnWifi"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/btnWifi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 자동 개폐 메뉴 -->
+    <TextView
+        android:id="@+id/btnAutoOpen"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Remote Control"
+        android:textSize="17sp"
+        android:textColor="#111111"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@id/divider1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 화살표 아이콘 (자동 개폐) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="›"
+        android:textSize="25sp"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toTopOf="@id/btnAutoOpen"
+        app:layout_constraintBottom_toBottomOf="@id/btnAutoOpen"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/btnAutoOpen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 사용 로그 기록 메뉴 -->
+    <TextView
+        android:id="@+id/btnLog"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Activity Log"
+        android:textSize="17sp"
+        android:textColor="#111111"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintTop_toBottomOf="@id/divider2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 화살표 아이콘 (사용 로그) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="›"
+        android:textSize="25sp"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toTopOf="@id/btnLog"
+        app:layout_constraintBottom_toBottomOf="@id/btnLog"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- 구분선 -->
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/btnLog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <!-- App Version -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Version"
+        android:textSize="17sp"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toBottomOf="@id/divider3"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.0.0"
+        android:textSize="17sp"
+        android:textColor="#AAAAAA"
+        app:layout_constraintTop_toBottomOf="@id/divider3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
