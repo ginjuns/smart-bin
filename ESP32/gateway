@@ -1,0 +1,97 @@
+#include <WiFi.h>
+#include <WebServer.h>
+#include <ESPmDNS.h>
+
+#define RX_PIN 16
+#define TX_PIN 17
+
+//와이파이
+const char* ssid = "fusion";
+const char* password = "12345678";
+
+//웹서버(포트번호)
+WebServer server(80);
+
+//UART2
+HardwareSerial mySerial(2);
+//거리 데이터 저장
+String distanceData="0";
+String coverData="0";
+String openReasonData="0";
+
+void setup() {
+  Serial.begin(115200);
+  //보드 UART 연결
+  mySerial.begin(9600,SERIAL_8N1,RX_PIN,TX_PIN);
+
+  //와이파이 연결
+  WiFi.begin(ssid, password);
+  Serial.print("WiFi 연결중");
+
+  while(WiFi.status() != WL_CONNECTED){
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi 연결 완료");
+
+  //IP 출력
+  Serial.print("ESP32 IP : ");
+  Serial.println(WiFi.localIP());
+
+  //smarttrashcan.lacal로 앱이 찾는다
+  if(MDNS.begin("smarttrashcan")){
+    Serial.println("mDNS시작:http://smarttrashcan.local");
+  }
+
+  //앱 요청 주소 등록
+  server.on("/SERVO_CLOSE", SERVO_CLOSE);
+  server.on("/SERVO_OPEN", SERVO_OPEN);
+  server.on("/data",sendData);
+
+  //서버 시작?
+  server.begin();
+  Serial.println("웹서버 시작");
+}
+
+//JSON 형식으로 값 전달
+void sendData(){
+  String json="{";
+  json+="\"distance\":"+distanceData+",";
+  json+="\"cover\":"+coverData+",";
+  json+="\"openReason\":"+openReasonData;
+  json+="}";
+  server.send(200,"application/json",json);
+}
+
+void SERVO_CLOSE(){
+  mySerial.println("SERVO_CLOSE");
+  server.send(200,"application/json","{\"result\":\"SERVO_CLOSE\"}");
+}
+void SERVO_OPEN(){
+  mySerial.println("SERVO_OPEN");
+  server.send(200,"application/json","{\"result\":\"SERVO_OPEN\"}");
+}
+
+void loop(){
+  //앱 요청 처리
+  server.handleClient();
+  //데이터 읽기
+  if(mySerial.available()){
+    String data =mySerial.readStringUntil('\n');
+    //공백 제거(안하면 오류난다함)
+    data.trim();
+
+    int comma1=data.indexOf(',');
+    int comma2=data.indexOf(',',comma1+1);
+
+    if(comma1!=-1 && comma2!=-1){
+      distanceData=data.substring(0,comma1);
+      coverData=data.substring(comma1+1,comma2);
+      openReasonData=data.substring(comma2+1);
+      Serial.println("거리: "+distanceData);
+      Serial.println("뚜껑 상태: "+coverData);
+      Serial.println("모드: "+openReasonData);
+    }
+  }
+}
